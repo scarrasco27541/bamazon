@@ -1,13 +1,14 @@
 
 const inquirer = require('inquirer');
 const mysql = require('mysql');
+require("dotenv").config();
 
 // Display items for sale (query / select all our rows)
 var con = mysql.createConnection({	
-	host: "localhost",
-	port: 3306,
-	user: "root",
-	password: "UNC1964",
+	host: process.env.MYSQL_HOST,
+	port: process.env.MYSQL_PORT,
+	user: process.env.MYSQL_USER,
+	password: process.env.MYSQL_PASSWORD,
 	database: "bamazon"
 });
 con.connect(function(err) {
